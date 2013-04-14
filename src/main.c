@@ -22,6 +22,7 @@
 int main(int argc, char *argv[])
 {
         struct my_config cfg ;
+        int i = 0;
         memset(&cfg, 0, sizeof(cfg));
         char filename[MAX_FILENAME];
         if(argc == 2)
@@ -38,10 +39,16 @@ int main(int argc, char *argv[])
                 exit(1);     
         }
 
-        printf("%d\n", cfg.listen_port);
+        printf("cfg.listen_port: %d\n", cfg.listen_port);
 
-        printf("%s\n", cfg.document_root);
+        printf("cfg.document_root: %s\n", cfg.document_root);
 
+        printf("cfg.f_type_cnt: %d\n", cfg.f_type_cnt);
+
+        for (i = 0; i<cfg.f_type_cnt; i++) {
+                printf("cfg.valid_file_types.extension: %s\n", cfg.filetypes[i].extension);
+                printf("cfg.valid_file_types.type: %s\n", cfg.filetypes[i].type);
+        }
 
         return 0;
 }
