@@ -1,17 +1,4 @@
-A Simple HTTP Web Server
-
-
-
-Instructions to compile:
-
-1. Go to base project folder
-
-2. make
-
-Instructions to run:
-
-./obj/http_server [config_file]
-
+My conf lib
 
 
 

@@ -23,7 +23,7 @@ struct directory_index_file {
         char filename[MAX_BUF];             /*default file name used when only directory is
                                         specified*/
 };
-struct http_server_config {
+struct my_config {
         int listen_port;                /*server listens on this port*/
         char document_root[MAX_BUF];        /*root directory */
         struct valid_file_types filetypes[MAX_BUF];         /*supported file types */
@@ -33,24 +33,10 @@ struct http_server_config {
 
 };
 
-/*Not used currently. Convenience data structure in case threads need to be used*/
-struct http_server_data {
-        struct http_server_config *cfg;
-        int sockfd;
-};
+
 
 /*Function declarations */
 
 int cfg_reader(void *c, char *line);
-void http_server(struct http_server_config *cfg, int sockfd);
 
-int valid_method_string(char **request, char *request_method);
-int valid_version(char **request, struct http_server_config *cfg, 
-                char *version);
-
-int valid_uri(char **request, struct http_server_config *cfg, 
-                char *uri);
-int valid_filetype(char **request, struct http_server_config *cfg, 
-                char *uri);
-int connection_handler(struct http_server_config *cfg);
 #endif

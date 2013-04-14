@@ -1,12 +1,11 @@
 /*
- * File Name : http_config.c 
+ * File Name : my_config.c 
  * Author : Hong Miao
  * Creation Date : 14-01-2013
  * Description :
  *
  */
-/*Read http server configuration from the config file and store it in memory
- */
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -16,7 +15,7 @@
 #include <stdio.h>
 #include "log.h"
 #include "tokenize.h"
-#include "httpconf.h"
+#include "myconf.h"
 #include "fileparser.h"
 
 int cfg_reader(void *c, char *line)
@@ -25,7 +24,7 @@ int cfg_reader(void *c, char *line)
         assert(line);
         char token[MAX_TOKEN_SIZE];
         int next_token = DEFAULT; 
-        struct http_server_config *cfg = (struct http_server_config *)c;
+        struct my_config *cfg = (struct my_config *)c;
         int indx = 0;
         int config_cnt = 0;
         /* From the given config file format, we assume we have 4 distinct
