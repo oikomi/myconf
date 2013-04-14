@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "tokenize.h"
+
+
 /*
  * tokenize()
  * str = pointer to string that has to be tokenized
@@ -20,6 +22,7 @@
  * RETURNS: length of current token
  *          -1 if error
  */
+
 int tokenize(char **str, char *dest)
 {
         int count = 0;
